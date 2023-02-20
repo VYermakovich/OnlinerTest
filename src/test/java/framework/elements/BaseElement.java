@@ -22,7 +22,7 @@ public abstract class BaseElement {
     private String name;
     private WebDriverWait wait;
 
-    private Actions action = new Actions(Browser.getDriver());
+//    private Actions action = new Actions(Browser.getDriver());
 
     public BaseElement(By by) {
         this.by = by;
@@ -130,11 +130,14 @@ public abstract class BaseElement {
 
     public void moveAndClickByAction() {
         isElementPresent();
+
+        Actions action = new Actions(Browser.getDriver());
         action.moveToElement(element).click().perform();
     }
 
     public void moveToElement() {
         isElementPresent();
+        Actions action = new Actions(Browser.getDriver());
         action.moveToElement(element).perform();
     }
 
